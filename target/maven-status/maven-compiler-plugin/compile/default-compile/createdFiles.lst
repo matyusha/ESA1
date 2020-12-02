@@ -1,0 +1,4 @@
+entity\Author.class
+beans\LibraryPersistentBean.class
+entity\Book.class
+servlets\MainServlet.class
