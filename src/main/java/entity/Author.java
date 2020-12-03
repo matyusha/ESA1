@@ -13,8 +13,6 @@ public class Author implements Serializable{
     private String name;
     private String surname;
 
-    private Collection<Book> books;
-
     public Author() {}
 
     public Author(int id, String name, String surname) {
@@ -49,20 +47,6 @@ public class Author implements Serializable{
 
     public void setSurname(String surname){
         this.surname = surname;
-    }
-
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name = "AUTH_BOOK", joinColumns = {
-             @JoinColumn(name = "ID_AUTH")
-    }, inverseJoinColumns = {
-            @JoinColumn(name = "ID_BOOK")
-    })
-    public Collection<Book> getBooks() {
-        return this.books;
-    }
-
-    public void setBooks(Collection<Book> books) {
-        this.books = books;
     }
 
 }
