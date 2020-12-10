@@ -24,7 +24,7 @@ public class MainServlet extends HttpServlet {
 
         session.setAttribute("bookList", libraryPersistentBean.getBooks());
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/page.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
         if (dispatcher != null) {
             dispatcher.forward(req, resp);
         }
