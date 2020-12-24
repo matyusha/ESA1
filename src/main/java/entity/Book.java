@@ -11,7 +11,7 @@ public class Book implements Serializable{
 
     private int id;
     private String title;
-    private double price;
+    private int price;
     private  int year;
 
     private Collection<Author> authors;
@@ -19,7 +19,7 @@ public class Book implements Serializable{
     public Book() {
     }
 
-    public Book(int id, String title, double price, int year){
+    public Book(int id, String title, int price, int year){
         this.id = id;
         this.title = title;
         this.price = price;
@@ -46,11 +46,11 @@ public class Book implements Serializable{
     }
 
     @Column(name="PRICE")
-    public double getPrice(){
+    public int getPrice(){
         return price;
     }
 
-    public void setPrice(double price){
+    public void setPrice(int price){
         this.price = price;
     }
 
@@ -68,9 +68,9 @@ public class Book implements Serializable{
     }
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
-    @JoinTable(name = "AUTH_BOOK",
+    @JoinTable(name = "BOOK_AUTHOR",
             joinColumns = {@JoinColumn(name = "ID_BOOK")},
-            inverseJoinColumns = {@JoinColumn(name = "ID_AUTH")})
+            inverseJoinColumns = {@JoinColumn(name = "ID_AUTHOR")})
     public Collection<Author> getAuthors() {
         return authors;
     }
